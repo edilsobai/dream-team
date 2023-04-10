@@ -1,0 +1,27 @@
+{
+  "name": "dream-team",
+  "version": "1.0.0",
+  "description": "This is a simple application built using the built-in http module that allows clients to create a dream team of players. The application can receive GET and POST requests, allowing clients to retrieve information about available players and create new dream teams by selecting a group of players.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usobaiev/dream-team.git"
+  },
+  "keywords": [],
+  "author": "Edil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usobaiev/dream-team/issues"
+  },
+  "homepage": "https://github.com/usobaiev/dream-team#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

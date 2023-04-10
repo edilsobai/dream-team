@@ -1,36 +1,10 @@
-const http = require("http");
-const {
-	getHOME,
-	getHTML,
-	getTEXT,
-	getPLAYERS,
-	postPLAYERS,
-	getERR
-} = require("./handlers")
+const express = require("express");
+const app = express();
 const PORT = 3000;
+const router = require("./routes/index")
+app.use(express.urlencoded({extended: false}));
 
-//SERVER
-const server  = http.createServer((req, res) => {
-	if(req.method === "GET" && req.url ==="/"){
-		return getHOME(req, res)
-	}
-	if(req.method === "GET" &&  req.url == "/html"){
-	return getHTML(req, res);
-	}
+app.use(router)
 
-	if(req.method === "GET" &&req.url === "/text"){
-	return getTEXT(req, res);
-	}
 
-	if(req.method === "GET"	&& req.url === "/players"){
-		return getPLAYERS(req, res);
-	}
-	if(req.method === "POST" && req.url === "/players"){
-		return postPLAYERS(req, res);
-	}
-
-	return getERR(req, res)
-
-})
-
-server.listen(PORT, () => console.log(`Running on port ${PORT}`))
+app.listen(PORT, () => console.log(`running on port ${PORT}`));

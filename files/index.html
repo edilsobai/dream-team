@@ -42,20 +42,16 @@
         <h1>Add a new football player</h1>
         <form action="/players" method="post">
             <label for="name">Player name:</label>
-            <input type="text" name="name" , id="name" autocomplete="off" />
+            <input required type="text" name="name"  id="name" autocomplete="off"  />
 
             <label for="country">Player country:</label>
-            <input type="text" name="country" id="country" autocomplete="off" />
+            <input required type="text" name="country" id="country" autocomplete="off"  />
 
             <label for="club">Player club:</label>
-            <input type="text" name="club" id="club" autocomplete="off" />
+            <input required type="text" name="club" id="club" autocomplete="off" />
 
             <label for="position">Player position:</label>
-            <input
-                type="text"
-                name="position"
-                id="position"
-                autocomplete="off"
+            <input required type="text"name=" position" id="position" autocomplete="off" 
             />
 
             <button type="submit">Submit player</button>
