@@ -5,16 +5,16 @@ async function getPlayersHandler(req, res) {
 	const dataString = await readData();
 	const dataJson = JSON.parse(dataString);
 	console.log(dataJson);
-	res.send(dataJson)
+	res.send(dataJson);
 }
 
 async function postPlayersHandler(req, res) {
-		try {
+	try {
 		const reqBody = req.body;
 		const dataString  = await readData();
 		const dataJson = JSON.parse(dataString);
 		dataJson.players.push({...reqBody});
-		await writeData(JSON.stringify(dataJson))
+		await writeData(JSON.stringify(dataJson));
 		res.status(201).send(`<h1>Player was added</h1>
 		<p>To retrieve information about available players, 
 		you can send request to <b>http://localhost:3000/players.<b></p>
@@ -26,4 +26,4 @@ async function postPlayersHandler(req, res) {
 	}
 }
 
-module.exports = {getPlayersHandler, postPlayersHandler}
+module.exports = {getPlayersHandler, postPlayersHandler};
