@@ -1,29 +1,62 @@
-const readData = require("../common-funcs/read_data_func");
-const writeData = require("../common-funcs/write_data_func");
+const knex = require("../db/knex");
 
+// get all players
 async function getPlayersHandler(req, res) {
-	const dataString = await readData();
-	const dataJson = JSON.parse(dataString);
-	console.log(dataJson);
-	res.send(dataJson);
+	try{
+	const allPlayers = await knex.select().from("players")
+	res.render("players/all_players", {allPlayers})
+	}
+	catch(e) {
+		res.send("error")
+	}
 }
 
+// create player and inserting into database 
 async function postPlayersHandler(req, res) {
-	try {
-		const reqBody = req.body;
-		const dataString  = await readData();
-		const dataJson = JSON.parse(dataString);
-		dataJson.players.push({...reqBody});
-		await writeData(JSON.stringify(dataJson));
-		res.status(201).send(`<h1>Player was added</h1>
-		<p>To retrieve information about available players, 
-		you can send request to <b>http://localhost:3000/players.<b></p>
-		<a href='/form'>Submit one more player</a>
-		`)
+	// it's function to create our player
+	const createPlayer = async ({
+		player_name,
+		player_country,
+		player_club,
+		player_position
+	}) => {
+		try {
+			const newPlayer = {
+				player_name,
+				player_country,
+				player_club,
+				player_position
+			};
+
+			const createdPlayer = await knex.into("players").insert(newPlayer);
+			res.render("players/player_page", {player_name});
+		} catch (err) {
+			console.log(err);
+			res.render("players/player_err")			
+		}
+
 	}
-	catch(err) {
-		console.log("Invalid JSON");
+		
+createPlayer(req.body);
+	
+
+}
+// change player by name
+async function patchPlayersHandler(req, res) {
+	try{
+	const newPlayer = req.body; 
+	const currentPlayer = await knex("players")
+	.where("player_name", "=",req.params.player_name)
+	.update({...newPlayer})
+	res.send(`Player ${req.params.player_name} was changed to ${newPlayer.player_name}`)
+	}
+	catch(e) {
+		console.log(e)
+		res.send("error")
 	}
 }
 
-module.exports = {getPlayersHandler, postPlayersHandler};
+module.exports = {
+	getPlayersHandler,
+	postPlayersHandler,
+	patchPlayersHandler};

@@ -1,15 +1,7 @@
 const express = require("express");
 const router = express.Router()
+const getIndexHandler = require("../controllers/index")
 
-const getPlayersRouter = require("./players");
-const getRootRouter = require("./root");
-const postPlayersRouter = require("./players");
-
-
-router.use("/players", postPlayersRouter);
-
-router.use("/players", getPlayersRouter);
-
-router.use("/form", getRootRouter);
+router.get("/", getIndexHandler)
 
 module.exports = router;

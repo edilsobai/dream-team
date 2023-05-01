@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your team</title>
+	<style>
+		
+		h1 {
+			font-size: 24px;
+			color: #333;
+			margin-bottom: 20px;
+			display: flex;
+			justify-content: center;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>All players</h1>
+	<table>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Club</th>
+    <th>Position</th>
+  </tr>
+  <% allPlayers.forEach(function(player) { %>
+	<tr>
+		<td><%= player.player_name %></td>
+		<td><%= player.player_country %></td>
+		<td><%= player.player_club %></td>
+		<td><%= player.player_position %></td>
+	</tr>
+	<%}); %>
+</table>
+</body>
+</html>
