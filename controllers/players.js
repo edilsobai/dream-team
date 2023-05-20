@@ -42,7 +42,7 @@ createPlayer(req.body);
 
 }
 // change player by name
-async function patchPlayersHandler(req, res) {
+async function putPlayersHandler(req, res) {
 	try{
 	const newPlayer = req.body; 
 	const currentPlayer = await knex("players")
@@ -59,4 +59,4 @@ async function patchPlayersHandler(req, res) {
 module.exports = {
 	getPlayersHandler,
 	postPlayersHandler,
-	patchPlayersHandler};
+	putPlayersHandler};

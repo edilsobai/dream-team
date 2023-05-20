@@ -3,7 +3,7 @@ const router = express.Router();
 const {
 	getPlayersHandler, 
 	postPlayersHandler,
-	patchPlayersHandler } = require("../controllers/players");
+	putPlayersHandler } = require("../controllers/players");
 
 //get all players
 router.get("/", getPlayersHandler);
@@ -11,7 +11,7 @@ router.get("/", getPlayersHandler);
 //post players
 router.post("/create_player", postPlayersHandler);
 
-//patch players
-router.patch("/:player_name", patchPlayersHandler);
+//put players
+router.put("/:player_name", putPlayersHandler);
 
 module.exports = router;

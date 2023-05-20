@@ -1,60 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Create a dream team</title>
-    </head>
-    <style>
-        h1 {
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        input[type="text"] {
-            font-size: 16px;
-            padding: 10px;
-            margin: 5px;
-            border: 1px solid gray;
-            border-radius: 5px;
-            width: 100%;
-            max-width: 500px;
-        }
-        button {
-            color: white;
-            background-color: cornflowerblue;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            margin: 10px;
-            padding: 12px 15px;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: blue;
-        }
-    </style>
-    <body>
-        <h1>Add a new football player</h1>
-        <form action="/players/create_player" method="post">
-            <label for="name">Player name:</label>
-            <input required type="text" name="player_name"  id="name" autocomplete="off"  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a dream team</title>
+  </head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input[type="text"] {
+      font-size: 16px;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid gray;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 500px;
+    }
+    button {
+      color: white;
+      background-color: cornflowerblue;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 12px 15px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: blue;
+    }
+  </style>
+  <body>
+    <h1>Add a new football player</h1>
+    <form action="/players/create_player" method="post">
+      <label for="name">Player name:</label>
+      <input
+        required
+        type="text"
+        name="player_name"
+        id="name"
+        autocomplete="off"
+      />
 
-            <label for="country">Player country:</label>
-            <input required type="text" name="player_country" id="country" autocomplete="off"  />
+      <label for="country">Player country:</label>
+      <input
+        required
+        type="text"
+        name="player_country"
+        id="country"
+        autocomplete="off"
+      />
 
-            <label for="club">Player club:</label>
-            <input required type="text" name="player_club" id="club" autocomplete="off" />
+      <label for="club">Player club:</label>
+      <input
+        required
+        type="text"
+        name="player_club"
+        id="club"
+        autocomplete="off"
+      />
 
-            <label for="position">Player position:</label>
-            <input required type="text" name="player_position" id="position" autocomplete="off" 
-            />
+      <label for="position">Player position:</label>
+      <input
+        required
+        type="text"
+        name="player_position"
+        id="position"
+        autocomplete="off"
+      />
 
-            <button type="submit">Submit player</button>
-        </form>
-    </body>
+      <button type="submit">Submit player</button>
+    </form>
+  </body>
 </html>
